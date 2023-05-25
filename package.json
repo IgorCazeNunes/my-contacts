@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "API to store contacts",
   "scripts": {
-    "dev": "node src/index.js"
+    "dev": "npx nodemon src/index.js"
   },
   "main": "src/index.js",
   "author": "Igor Cazé",
