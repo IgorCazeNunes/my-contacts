@@ -36,16 +36,39 @@ class ContactsRepository {
     });
   }
 
-  create(contact) {
+  create({
+    name, email, phone, category_id,
+  }) {
     return new Promise((resolve) => {
       const newContact = {
         id: v4(),
-        ...contact,
+        name,
+        email,
+        phone,
+        category_id,
       };
 
       contacts.push(newContact);
 
       resolve(newContact);
+    });
+  }
+
+  update(id, {
+    name, email, phone, category_id,
+  }) {
+    return new Promise((resolve) => {
+      const updatedContact = {
+        id: v4(),
+        name,
+        email,
+        phone,
+        category_id,
+      };
+
+      contacts = contacts.map((contact) => (contact.id === id ? updatedContact : contact));
+
+      resolve(updatedContact);
     });
   }
 
